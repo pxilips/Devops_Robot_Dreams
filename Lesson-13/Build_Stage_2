@@ -1,0 +1,55 @@
+package _Self.buildTypes
+
+import jetbrains.buildServer.configs.kotlin.*
+import jetbrains.buildServer.configs.kotlin.buildSteps.script
+import jetbrains.buildServer.configs.kotlin.triggers.vcs
+
+object Build : BuildType({
+    name = "Build_Stage_2"
+
+    artifactRules = """C:\TeamCity\buildAgent\work\b91a9a24e0d51ded => relese_ver_%build.counter%.zip"""
+    publishArtifacts = PublishMode.SUCCESSFUL
+
+    params {
+        param("env.teamcity.agent.workingDir", "%env.BUILD_NUMBER%")
+        param("teamcity.agent.workingDir", "%env.BUILD_NUMBER%")
+    }
+
+    vcs {
+        root(HttpsGithubComPxilipsLesson6gitRefsHeadsMain)
+    }
+
+    steps {
+        script {
+            workingDir = "%teamcity.agent.workingDir%"
+            scriptContent = "./cmd_names.sh"
+        }
+        script {
+            workingDir = "%teamcity.agent.workingDir%"
+            scriptContent = "./pid.sh"
+        }
+        script {
+            workingDir = "%teamcity.agent.workingDir%"
+            scriptContent = "./py_errors.sh"
+        }
+        script {
+            workingDir = "%teamcity.agent.workingDir%"
+            scriptContent = "./usr_executables.sh"
+        }
+    }
+
+    triggers {
+        vcs {
+        }
+    }
+
+    failureConditions {
+        nonZeroExitCode = false
+    }
+
+    dependencies {
+        snapshot(AbsoluteId("Lesson5_Build")) {
+            onDependencyFailure = FailureAction.IGNORE
+        }
+    }
+})

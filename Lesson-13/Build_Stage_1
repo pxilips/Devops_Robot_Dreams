@@ -1,0 +1,47 @@
+package _Self.buildTypes
+
+import jetbrains.buildServer.configs.kotlin.*
+import jetbrains.buildServer.configs.kotlin.buildSteps.script
+import jetbrains.buildServer.configs.kotlin.triggers.vcs
+
+object Build : BuildType({
+    name = "Build_Stage_1"
+
+    publishArtifacts = PublishMode.SUCCESSFUL
+
+    params {
+        param("env.teamcity.agent.workingDir", "%env.BUILD_NUMBER%")
+        param("system.teamcity.agent.workingDir", "%env.BUILD_NUMBER%")
+    }
+
+    vcs {
+        root(HttpsGithubComPxilipsLesson5gitRefsHeadsMain)
+    }
+
+    steps {
+        script {
+            name = "Build_Stage_1"
+            workingDir = "%system.teamcity.agent.workingDir%"
+            scriptContent = "Lesson5/etc_dir.sh"
+        }
+        script {
+            name = "Build_Stage_1 (1)"
+            workingDir = "%system.teamcity.agent.workingDir%"
+            scriptContent = "Lesson5/executable.sh"
+        }
+        script {
+            name = "Build_Stage_1 (2)"
+            workingDir = "%system.teamcity.agent.workingDir%"
+            scriptContent = "Lesson5/var_log.sh"
+        }
+    }
+
+    triggers {
+        vcs {
+        }
+    }
+
+    failureConditions {
+        nonZeroExitCode = false
+    }
+})

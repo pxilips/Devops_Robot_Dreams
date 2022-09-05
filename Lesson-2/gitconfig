@@ -1,0 +1,7 @@
+$ git config -l
+
+user.name=Pxilips
+user.email=pxilips@gmail.com
+commit.template=Forgot to put a commit
+credential.helper=cache --timeout 360
+remote.origin.url=https://github.com/pxilips/Home_Work2.git

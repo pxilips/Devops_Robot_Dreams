@@ -1,0 +1,53 @@
+{
+    "sku": {
+        "name": "Standard_LRS",
+        "tier": "Standard"
+    },
+    "kind": "StorageV2",
+    "id": "/subscriptions/e182f7ef-edb5-4f73-bb1c-a6c1bc40b8cd/resourceGroups/devops-test-rg/providers/Microsoft.Storage/storageAccounts/azurestorage7777",
+    "name": "azurestorage7777",
+    "type": "Microsoft.Storage/storageAccounts",
+    "location": "westeurope",
+    "tags": {
+        "Name": "Storage Account"
+    },
+    "properties": {
+        "minimumTlsVersion": "TLS1_1",
+        "allowBlobPublicAccess": true,
+        "allowSharedKeyAccess": true,
+        "isHnsEnabled": true,
+        "networkAcls": {
+            "bypass": "AzureServices",
+            "virtualNetworkRules": [],
+            "ipRules": [],
+            "defaultAction": "Allow"
+        },
+        "supportsHttpsTrafficOnly": true,
+        "encryption": {
+            "services": {
+                "file": {
+                    "enabled": true,
+                    "lastEnabledTime": "2022-08-20T17:57:16.2103516Z"
+                },
+                "blob": {
+                    "enabled": true,
+                    "lastEnabledTime": "2022-08-20T17:57:16.2103516Z"
+                }
+            },
+            "keySource": "Microsoft.Storage"
+        },
+        "accessTier": "Hot",
+        "provisioningState": "Succeeded",
+        "creationTime": "2022-08-20T17:57:15.6478464Z",
+        "primaryEndpoints": {
+            "dfs": "https://azurestorage7777.dfs.core.windows.net/",
+            "web": "https://azurestorage7777.z6.web.core.windows.net/",
+            "blob": "https://azurestorage7777.blob.core.windows.net/",
+            "queue": "https://azurestorage7777.queue.core.windows.net/",
+            "table": "https://azurestorage7777.table.core.windows.net/",
+            "file": "https://azurestorage7777.file.core.windows.net/"
+        },
+        "primaryLocation": "westeurope",
+        "statusOfPrimary": "available"
+    }
+}
