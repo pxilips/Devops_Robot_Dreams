@@ -1,0 +1,8 @@
+Companies
+db.getCollection("companies").find({name: /^C/,founded_year: {$gt: 1980}})
+
+Products
+db.getCollection("products").find({name: /^Phone*/,rating: {$lt: 4}})
+
+Students
+db.getCollection("students").find({name: "Lady Lefevers",_id: {$gt: 40.0}})

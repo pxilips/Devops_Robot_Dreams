@@ -1,0 +1,36 @@
+{
+    "_id" : NumberInt(46),
+    "name" : "Lady Lefevers",
+    "scores" : [
+        {
+            "score" : 16.89237820123443,
+            "type" : "exam"
+        },
+        {
+            "score" : 65.97505910406456,
+            "type" : "quiz"
+        },
+        {
+            "score" : 48.42527123437286,
+            "type" : "homework"
+        }
+    ]
+}
+{
+    "_id" : NumberInt(160),
+    "name" : "Lady Lefevers",
+    "scores" : [
+        {
+            "score" : 89.14702404133767,
+            "type" : "exam"
+        },
+        {
+            "score" : 11.85715160788611,
+            "type" : "quiz"
+        },
+        {
+            "score" : 87.70817474845785,
+            "type" : "homework"
+        }
+    ]
+}
